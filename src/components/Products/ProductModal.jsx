@@ -94,16 +94,22 @@ export default function ProductModal() {
   const onSubmit = async (values) => {
     const data = {
       ...values,
+      name:          values.name?.trim() || '',
+      brand:         values.brand?.trim() || '',
       price:         Number(values.price),
       originalPrice: values.originalPrice ? Number(values.originalPrice) : Number(values.price),
       stock:         Number(values.stock),
     };
-    if (isEdit) {
-      await updateMutation.mutateAsync({ id: editingProduct.id, data });
-    } else {
-      await createMutation.mutateAsync(data);
+    try {
+      if (isEdit) {
+        await updateMutation.mutateAsync({ id: editingProduct.id, data });
+      } else {
+        await createMutation.mutateAsync(data);
+      }
+      dispatch(closeModal());
+    } catch {
+      // Error is handled by mutation onError callback
     }
-    dispatch(closeModal());
   };
 
   return (

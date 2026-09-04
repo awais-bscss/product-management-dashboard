@@ -17,12 +17,16 @@ export default function DeleteModal() {
   const isPending = isSingle ? deleteSingleMutation.isPending : deleteBulkMutation.isPending;
 
   const handleDelete = async () => {
-    if (isSingle) {
-      await deleteSingleMutation.mutateAsync(editingProduct.id);
-    } else if (isBulk) {
-      await deleteBulkMutation.mutateAsync(selectedIds);
+    try {
+      if (isSingle) {
+        await deleteSingleMutation.mutateAsync(editingProduct.id);
+      } else if (isBulk) {
+        await deleteBulkMutation.mutateAsync(selectedIds);
+      }
+      dispatch(closeModal());
+    } catch {
+      // Error handled by mutation onError
     }
-    dispatch(closeModal());
   };
 
   return (
