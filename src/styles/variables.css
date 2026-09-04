@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font: 'Inter', sans-serif;
+
+  /* Colors */
+  --bg-app:       #f0f2f5;
+  --bg-white:     #ffffff;
+  --bg-subtle:    #f7f8fa;
+  --bg-hover:     #f2f4f7;
+
+  --border:       #e4e7ec;
+  --border-focus: #667eea;
+
+  --text-primary:   #111827;
+  --text-secondary: #6b7280;
+  --text-muted:     #9ca3af;
+  --text-white:     #ffffff;
+
+  --accent:       #667eea;
+  --accent-hover: #5a6fd6;
+  --accent-light: #eef0fd;
+
+  --green:        #10b981;
+  --green-light:  #d1fae5;
+  --red:          #ef4444;
+  --red-light:    #fee2e2;
+  --orange:       #f59e0b;
+  --orange-light: #fef3c7;
+  --blue:         #3b82f6;
+  --blue-light:   #dbeafe;
+  --purple:       #8b5cf6;
+  --purple-light: #ede9fe;
+
+  /* Spacing & Radii */
+  --radius-sm: 3px;
+  --radius:    5px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-full: 9999px;
+
+  /* Category colors */
+  --cat-computers-bg: #eef0fd; --cat-computers-text: #667eea;
+  --cat-electronics-bg: #dbeafe; --cat-electronics-text: #3b82f6;
+  --cat-shoes-bg: #d1fae5; --cat-shoes-text: #059669;
+  --cat-bags-bg: #fef3c7; --cat-bags-text: #d97706;
+  --cat-furniture-bg: #ede9fe; --cat-furniture-text: #7c3aed;
+  --cat-default-bg: #f3f4f6; --cat-default-text: #6b7280;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-sm: 0 1px 4px rgba(0,0,0,.07);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.10);
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+  --bg-app:         #0f1117;
+  --bg-white:       #1a1d27;
+  --bg-subtle:      #22263a;
+  --bg-hover:       #2a2f45;
+
+  --border:         #2e3349;
+  --border-focus:   #667eea;
+
+  --text-primary:   #f1f3f9;
+  --text-secondary: #9aa0bb;
+  --text-muted:     #5c637a;
+
+  --accent-light:   #1e2345;
+
+  --shadow-sm: 0 1px 4px rgba(0,0,0,.25);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.35);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.45);
+
+  /* Category colors (Dark Mode) */
+  --cat-computers-bg: rgba(102,126,234,.15); --cat-computers-text: #818cf8;
+  --cat-electronics-bg: rgba(59,130,246,.15); --cat-electronics-text: #60a5fa;
+  --cat-shoes-bg: rgba(5,150,105,.15); --cat-shoes-text: #34d399;
+  --cat-bags-bg: rgba(217,119,6,.15); --cat-bags-text: #fbbf24;
+  --cat-furniture-bg: rgba(124,58,237,.15); --cat-furniture-text: #a78bfa;
+  --cat-default-bg: rgba(107,114,128,.15); --cat-default-text: #9ca3af;
+}
