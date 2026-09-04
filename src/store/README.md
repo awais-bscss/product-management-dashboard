@@ -18,7 +18,7 @@ The application adopts a hybrid state management model where each piece of state
    - Key responsibilities: Active modal dialogs, selected row IDs for batch operations, toast notification queues, and theme preferences (light/dark mode).
    - Store implementation:
      - `src/store/filtersSlice.js`: In-memory mirror of search queries, category, brand, and pagination filters.
-     - `src/store/uiSlice.js`: Modal toggles (`productModal`, `deleteModal`, `stateDocModal`), selected product IDs for bulk operations, and toast notifications.
+     - `src/store/uiSlice.js`: Modal management (`modal`: 'add' | 'edit' | 'delete' | 'bulkDelete'), active `editingProduct` payload, `selectedIds` for bulk actions, and collision-free `toasts` queue.
      - `src/store/themeSlice.js`: Light and dark mode preference, synchronized with DOM `data-theme` attribute and `localStorage`.
 
 3. URL State (Handled by React Router `useSearchParams`)
