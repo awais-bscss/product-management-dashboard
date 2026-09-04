@@ -154,15 +154,15 @@ export default function ProductTable({ products, selectedIds, onSelect, onSelect
                 <div style={{ fontSize: 11.5, color: 'var(--text-muted)' }}>{p.createdAt}</div>
               </td>
               <td>
-                <div style={{ fontWeight: 600 }}>${p.price.toLocaleString()}</div>
-                {p.originalPrice > p.price && (
+                <div style={{ fontWeight: 600 }}>${Number(p.price || 0).toLocaleString()}</div>
+                {Number(p.originalPrice) > Number(p.price) && (
                   <div style={{ fontSize: 11.5, color: 'var(--text-muted)', textDecoration: 'line-through' }}>
-                    ${p.originalPrice.toLocaleString()}
+                    ${Number(p.originalPrice || 0).toLocaleString()}
                   </div>
                 )}
               </td>
               <td>
-                <span style={{ fontWeight: 600 }}>{p.stock.toLocaleString()}</span>
+                <span style={{ fontWeight: 600 }}>{Number(p.stock || 0).toLocaleString()}</span>
               </td>
               <td>
                 <StatusBadge status={p.status} />
