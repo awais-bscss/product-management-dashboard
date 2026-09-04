@@ -4,46 +4,46 @@ const DECISIONS = [
   {
     number: '1',
     title: 'Local UI State',
-    tool: 'useState / useReducer',
-    examples: 'Modal open/close, dropdown toggle, form field values.',
-    reason: 'Tightly scoped to a single component. No need to share across the tree.',
+    tool: 'useState',
+    examples: 'Dropdown menus (CustomSelect, RowMenu), search input buffer before debounce, refresh spin animation, and State Decision Doc toggle.',
+    reason: 'Tightly scoped to single components. No need to share across the component tree.',
   },
   {
     number: '2',
     title: 'Shared / Global UI State',
     tool: 'Redux Toolkit',
-    examples: 'Selected product IDs (bulk, auto-cleared on filter or page change), active modal, editing product, toast notifications.',
-    reason: 'Needs to be accessed and updated by multiple unrelated components without prop-drilling.',
+    examples: 'Active modal (add, edit, delete, bulkDelete), editing product payload, bulk selectedIds (auto-cleared on filter/page change), toast notifications, and dark/light theme.',
+    reason: 'Needs to be accessed and modified across multiple unrelated components without prop-drilling.',
   },
   {
     number: '3',
     title: 'URL / Filter State',
-    tool: 'useSearchParams + Redux',
-    examples: 'search, category, brand, status, page number.',
-    reason: 'URL state makes filters bookmarkable and shareable. Browser back/forward navigation works correctly.',
+    tool: 'useSearchParams + Redux (filtersSlice)',
+    examples: 'search query, category, brand, status tab, and page number.',
+    reason: 'Makes filters bookmarkable, shareable, and ensures filters and active page persist on browser reload and history navigation.',
   },
   {
     number: '4',
     title: 'Server / Cache State',
     tool: 'TanStack Query',
-    examples: 'Paginated product list, optimistic create/update/delete mutations.',
-    reason: 'Server state can go stale, fail, and needs caching. TanStack Query handles this out of the box.',
+    examples: 'Product list caching, background refetching, and optimistic create/update/delete/bulk-delete mutations with automatic rollback.',
+    reason: 'Server state can go stale or fail. TanStack Query provides caching, deduping, and optimistic updates out of the box.',
   },
   {
     number: '5',
     title: 'Form State',
     tool: 'React Hook Form',
-    examples: 'Product name, price, stock, category, brand, status in the Add/Edit modal.',
-    reason: 'Form state is local to the modal. React Hook Form avoids re-renders on every keystroke.',
+    examples: 'Product name, category, brand, price, originalPrice, stock, status, and description in ProductModal.',
+    reason: 'Form state is local to the modal dialog. React Hook Form manages validation and avoids re-rendering the modal on every keystroke.',
   },
 ];
 
 const TABLE_ROWS = [
-  ['Local UI',     'useState',         'Component'],
-  ['Global UI',    'Redux Toolkit',    'Redux Store'],
-  ['URL Filters',  'useSearchParams',  'URL + Redux'],
-  ['Server',       'TanStack Query',   'Query Cache'],
-  ['Form',         'React Hook Form',  'Modal Component'],
+  ['Local UI',     'useState',                       'Component'],
+  ['Global UI',    'Redux Toolkit (ui + theme)',     'Redux Store'],
+  ['URL Filters',  'useSearchParams + filtersSlice', 'URL + Redux'],
+  ['Server State', 'TanStack Query',                 'Query Cache'],
+  ['Form State',   'React Hook Form',                'ProductModal'],
 ];
 
 export default function StateDocumentModal({ onClose }) {
