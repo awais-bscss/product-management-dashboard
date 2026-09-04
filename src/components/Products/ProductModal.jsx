@@ -62,12 +62,15 @@ export default function ProductModal() {
     control,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: DEFAULT_FORM,
     mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
+
+  const currentStatus = watch('status');
 
   useEffect(() => {
     if (isEdit && editingProduct) {
