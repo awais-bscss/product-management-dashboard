@@ -18,7 +18,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Routes>
             <Route path="/" element={<RootLayout />}>
               <Route index element={<Navigate to="/products" replace />} />
