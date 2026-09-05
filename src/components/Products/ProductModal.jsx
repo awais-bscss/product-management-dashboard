@@ -152,6 +152,7 @@ export default function ProductModal() {
                 placeholder="e.g. MacBook Pro M3"
                 {...register('name', {
                   required: 'Product name is required',
+                  maxLength: { value: 60, message: 'Name must be 60 characters or fewer' },
                   validate: (v) => !!v.trim() || 'Product name is required',
                 })}
                 autoFocus
@@ -183,6 +184,7 @@ export default function ProductModal() {
                   placeholder="e.g. Apple"
                   {...register('brand', {
                     required: 'Brand is required',
+                    maxLength: { value: 40, message: 'Brand must be 40 characters or fewer' },
                     validate: (v) => !!v.trim() || 'Brand is required',
                   })}
                 />
